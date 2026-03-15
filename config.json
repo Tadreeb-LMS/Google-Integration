@@ -1,0 +1,45 @@
+{
+    "name": "Google Meet Integration",
+    "description": "Integrate Google Meet with LMS courses",
+    "version": "1.0.0",
+    "integration_key": "GOOGLE_MEET_INTEGRATION",
+    "GOOGLE_PROJECT_ID": "",
+    "GOOGLE_CLIENT_ID": "",
+    "GOOGLE_CLIENT_SECRET": "",
+    "GOOGLE_SERVICE_ACCOUNT_JSON": "",
+    "GOOGLE_ADMIN_EMAIL": "",
+    "metadata": {
+        "fields": {
+            "GOOGLE_PROJECT_ID": {
+                "type": "text",
+                "label": "Google Project ID",
+                "placeholder": "Enter your Google Cloud Project ID",
+                "required": false
+            },
+            "GOOGLE_CLIENT_ID": {
+                "type": "text",
+                "label": "Google Client ID",
+                "placeholder": "Enter your Google Client ID",
+                "required": true
+            },
+            "GOOGLE_CLIENT_SECRET": {
+                "type": "password",
+                "label": "Google Client Secret",
+                "placeholder": "Enter your Google Client Secret",
+                "required": true
+            },
+            "GOOGLE_SERVICE_ACCOUNT_JSON": {
+                "type": "textarea",
+                "label": "Service Account JSON (Optional for Service Accounts)",
+                "placeholder": "Paste the contents of your Service Account JSON key if using Service Account auth",
+                "required": false
+            },
+            "GOOGLE_ADMIN_EMAIL": {
+                "type": "text",
+                "label": "Google Workspace Admin Email",
+                "placeholder": "Email of the user to impersonate (required for Meet creation)",
+                "required": false
+            }
+        }
+    }
+}
