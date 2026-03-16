@@ -1,5 +1,5 @@
 <?php
-namespace Modules\GoogleMeet\Services;
+namespace Modules\GoogleMeetIntegration\Services;
 use App\Services\ExternalApps\ExternalAppService;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
@@ -12,27 +12,27 @@ class GoogleMeetService
     private $adminEmail;
     public function __construct()
     {
-        $app = \App\Models\ExternalApp::where('slug', 'google-meet')->first();
+        $app = \App\Models\ExternalApp::where('slug', 'google-meet-integration')->first();
         $this->projectId = $app->configuration['GOOGLE_PROJECT_ID'] ?? '';
         $this->clientId = $app->configuration['GOOGLE_CLIENT_ID'] ?? '';
         $this->clientSecret = $app->configuration['GOOGLE_CLIENT_SECRET'] ?? '';
         $this->serviceAccountJson = $app->configuration['GOOGLE_SERVICE_ACCOUNT_JSON'] ?? '';
         // Fallback to .env if empty
         if (empty($this->clientId)) {
-             $this->clientId = ExternalAppService::staticGetModuleEnv('google-meet', 'GOOGLE_CLIENT_ID');
+             $this->clientId = ExternalAppService::staticGetModuleEnv('google-meet-integration', 'GOOGLE_CLIENT_ID');
         }
         if (empty($this->clientSecret)) {
-             $this->clientSecret = ExternalAppService::staticGetModuleEnv('google-meet', 'GOOGLE_CLIENT_SECRET');
+             $this->clientSecret = ExternalAppService::staticGetModuleEnv('google-meet-integration', 'GOOGLE_CLIENT_SECRET');
         }
         if (empty($this->projectId)) {
-             $this->projectId = ExternalAppService::staticGetModuleEnv('google-meet', 'GOOGLE_PROJECT_ID');
+             $this->projectId = ExternalAppService::staticGetModuleEnv('google-meet-integration', 'GOOGLE_PROJECT_ID');
         }
         if (empty($this->serviceAccountJson)) {
-             $this->serviceAccountJson = ExternalAppService::staticGetModuleEnv('google-meet', 'GOOGLE_SERVICE_ACCOUNT_JSON');
+             $this->serviceAccountJson = ExternalAppService::staticGetModuleEnv('google-meet-integration', 'GOOGLE_SERVICE_ACCOUNT_JSON');
         }
         $this->adminEmail = $app->configuration['GOOGLE_ADMIN_EMAIL'] ?? '';
         if (empty($this->adminEmail)) {
-            $this->adminEmail = ExternalAppService::staticGetModuleEnv('google-meet', 'GOOGLE_ADMIN_EMAIL');
+            $this->adminEmail = ExternalAppService::staticGetModuleEnv('google-meet-integration', 'GOOGLE_ADMIN_EMAIL');
         }
     }
     /**

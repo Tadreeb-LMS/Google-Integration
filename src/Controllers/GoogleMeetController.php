@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\GoogleMeet\Controllers;
+namespace Modules\GoogleMeetIntegration\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Modules\GoogleMeet\Services\GoogleMeetService;
+use Modules\GoogleMeetIntegration\Services\GoogleMeetService;
 
 class GoogleMeetController extends Controller
 {
